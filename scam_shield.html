@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Scam Shield — Senior Safety</title>
+    <meta name="color-scheme" content="light only">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-blue-200 selection:text-slate-900" style="font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;">
+
+    <!-- App Container -->
+    <div class="min-h-screen flex flex-col">
+      <!-- Top Bar -->
+      <header class="sticky top-0 z-50 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="h-9 w-9 rounded-[10px] bg-slate-900 text-white flex items-center justify-center font-semibold tracking-tight select-none">SS</div>
+              <div class="flex flex-col">
+                <h1 class="text-xl sm:text-2xl font-semibold tracking-tight leading-tight">Scam Shield</h1>
+                <p class="text-xs text-slate-500 -mt-0.5">AI-powered protection for seniors</p>
+              </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-3">
+              <!-- Text Size Control -->
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-slate-600">Text size</span>
+                <div class="inline-flex rounded-lg border border-slate-200 bg-white p-1">
+                  <button id="txt-sm" class="px-2.5 py-1.5 rounded-md text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="false">A</button>
+                  <button id="txt-md" class="px-2.5 py-1.5 rounded-md text-base hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="true">A</button>
+                  <button id="txt-lg" class="px-2.5 py-1.5 rounded-md text-lg hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="false">A</button>
+                </div>
+              </div>
+              <!-- Voice Assist Toggle -->
+              <button id="voice-toggle" class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="true">
+                <i data-lucide="speaker" stroke-width="1.5" class="w-4 h-4"></i>
+                Voice Assist
+              </button>
+              <!-- Emergency -->
+              <a href="#emergency" class="inline-flex items-center gap-2 rounded-lg bg-rose-600 text-white px-4 py-2 text-sm shadow-sm hover:bg-rose-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600">
+                <i data-lucide="alert-triangle" stroke-width="1.5" class="w-4 h-4"></i>
+                Emergency Help
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="flex-1">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Left/Main Column -->
+            <section class="lg:col-span-2 space-y-6">
+              <!-- Protection Status Card -->
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div class="flex items-center gap-3">
+                    <div class="h-11 w-11 rounded-xl bg-slate-900 text-white flex items-center justify-center">
+                      <i data-lucide="shield-check" stroke-width="1.5" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                      <h2 class="text-xl sm:text-2xl font-semibold tracking-tight leading-tight">Protection is ON</h2>
+                      <p class="text-sm text-slate-600">Calls and messages are automatically scanned and blocked</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <!-- Auto Block Toggle -->
+                    <button data-toggle="autoblock" class="group inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="true">
+                      <span class="relative inline-flex h-5 w-9 items-center rounded-full bg-slate-900 transition-colors">
+                        <span class="absolute left-4 group-aria-[pressed=false]:left-0.5 transition-all inline-block h-4 w-4 rounded-full bg-white shadow"></span>
+                      </span>
+                      Auto-block
+                    </button>
+                    <!-- Real-time Alerts Toggle -->
+                    <button data-toggle="realtime" class="group inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="true">
+                      <span class="relative inline-flex h-5 w-9 items-center rounded-full bg-slate-900 transition-colors">
+                        <span class="absolute left-4 group-aria-[pressed=false]:left-0.5 transition-all inline-block h-4 w-4 rounded-full bg-white shadow"></span>
+                      </span>
+                      Real-time alerts
+                    </button>
+                    <!-- Voice Assist Toggle (secondary) -->
+                    <button data-toggle="voice" class="group inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3.5 py-2.5 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="true">
+                      <span class="relative inline-flex h-5 w-9 items-center rounded-full bg-slate-900 transition-colors">
+                        <span class="absolute left-4 group-aria-[pressed=false]:left-0.5 transition-all inline-block h-4 w-4 rounded-full bg-white shadow"></span>
+                      </span>
+                      Voice Assist
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Status Grid -->
+                <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <div class="text-xs text-slate-500">Blocked Today</div>
+                    <div class="mt-1 text-2xl font-semibold tracking-tight">7</div>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <div class="text-xs text-slate-500">Suspicious Calls</div>
+                    <div class="mt-1 text-2xl font-semibold tracking-tight">3</div>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <div class="text-xs text-slate-500">SMS Scams</div>
+                    <div class="mt-1 text-2xl font-semibold tracking-tight">4</div>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <div class="text-xs text-slate-500">Risk Level</div>
+                    <div class="mt-1 flex items-center gap-2">
+                      <div class="h-2.5 flex-1 rounded-full bg-slate-200 overflow-hidden">
+                        <div class="h-full w-3/5 bg-amber-500"></div>
+                      </div>
+                      <span class="text-sm text-amber-700">Medium</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Chart: Weekly Trend -->
+                <div class="mt-6">
+                  <h3 class="text-base font-medium tracking-tight">This Week</h3>
+                  <p class="text-sm text-slate-600">Blocked scams over the last 7 days</p>
+                  <div class="mt-4 rounded-xl border border-slate-200 bg-white p-3">
+                    <div class="relative h-40">
+                      <div class="h-full w-full">
+                        <div class="h-full w-full">
+                          <canvas id="trendChart" class="h-full w-full"></canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Real-Time Alerts Feed -->
+              <div class="rounded-2xl border border-slate-200 bg-white">
+                <div class="p-4 sm:p-6 border-b border-slate-200 flex items-center justify-between">
+                  <div>
+                    <h2 class="text-xl font-semibold tracking-tight">Real-Time Scam Alerts</h2>
+                    <p class="text-sm text-slate-600">Instant warnings about suspicious calls or messages</p>
+                  </div>
+                  <button id="simulate-alert" class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3.5 py-2 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                    <i data-lucide="zap" stroke-width="1.5" class="w-4 h-4"></i>
+                    Simulate Alert
+                  </button>
+                </div>
+                <ul id="alerts-list" class="divide-y divide-slate-200">
+                  <!-- Alert Item Template inserted by JS -->
+                </ul>
+              </div>
+            </section>
+
+            <!-- Right/Sidebar -->
+            <aside class="space-y-6">
+              <!-- Caregiver Connect -->
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 rounded-xl bg-slate-900 text-white flex items-center justify-center">
+                      <i data-lucide="users" stroke-width="1.5" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-lg font-semibold tracking-tight">Caregiver Connect</h3>
+                      <p class="text-sm text-slate-600">Trusted contacts get alerts</p>
+                    </div>
+                  </div>
+                  <button class="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                    <i data-lucide="link" stroke-width="1.5" class="w-4 h-4"></i>
+                    Share Access
+                  </button>
+                </div>
+
+                <ul class="mt-4 space-y-3">
+                  <li class="flex items-center justify-between gap-3 rounded-xl border border-slate-200 p-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <img class="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop" alt="Caregiver avatar">
+                      <div class="min-w-0">
+                        <p class="text-sm font-medium truncate">Alex Johnson</p>
+                        <p class="text-xs text-slate-600 truncate">Daughter • SMS + App Alerts</p>
+                      </div>
+                    </div>
+                    <button class="group inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="true">
+                      <span class="relative inline-flex h-5 w-9 items-center rounded-full bg-slate-900 transition-colors">
+                        <span class="absolute left-4 group-aria-[pressed=false]:left-0.5 transition-all inline-block h-4 w-4 rounded-full bg-white shadow"></span>
+                      </span>
+                      Alerts
+                    </button>
+                  </li>
+                  <li class="flex items-center justify-between gap-3 rounded-xl border border-slate-200 p-3">
+                    <div class="flex items-center gap-3 min-w-0">
+                      <img class="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=300&auto=format&fit=crop" alt="Caregiver avatar">
+                      <div class="min-w-0">
+                        <p class="text-sm font-medium truncate">Michael Lee</p>
+                        <p class="text-xs text-slate-600 truncate">Son • App Alerts</p>
+                      </div>
+                    </div>
+                    <button class="group inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-sm hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600" aria-pressed="true">
+                      <span class="relative inline-flex h-5 w-9 items-center rounded-full bg-slate-900 transition-colors">
+                        <span class="absolute left-4 group-aria-[pressed=false]:left-0.5 transition-all inline-block h-4 w-4 rounded-full bg-white shadow"></span>
+                      </span>
+                      Alerts
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Quick Tips / Education -->
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
+                <div class="flex items-center gap-3">
+                  <div class="h-10 w-10 rounded-xl bg-slate-900 text-white flex items-center justify-center">
+                    <i data-lucide="book-open" stroke-width="1.5" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold tracking-tight">Scam Education</h3>
+                    <p class="text-sm text-slate-600">Learn to spot common tricks</p>
+                  </div>
+                </div>
+                <div class="mt-4 space-y-3">
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <div class="flex items-start gap-3">
+                      <i data-lucide="shield" stroke-width="1.5" class="w-5 h-5 text-slate-700 mt-0.5"></i>
+                      <div>
+                        <p class="text-sm font-medium">Never share codes</p>
+                        <p class="text-sm text-slate-600">Banks and agencies never ask for one-time codes on the phone.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <div class="flex items-start gap-3">
+                      <i data-lucide="circle-alert" stroke-width="1.5" class="w-5 h-5 text-amber-600 mt-0.5"></i>
+                      <div>
+                        <p class="text-sm font-medium">Pressure is a red flag</p>
+                        <p class="text-sm text-slate-600">Scammers rush you to act. Hang up and call the official number.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <div class="flex items-start gap-3">
+                      <i data-lucide="smartphone" stroke-width="1.5" class="w-5 h-5 text-blue-700 mt-0.5"></i>
+                      <div>
+                        <p class="text-sm font-medium">Links can be fake</p>
+                        <p class="text-sm text-slate-600">Don’t tap unexpected links. Open apps directly instead.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a href="#" class="mt-4 inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3.5 py-2 text-sm hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                  <i data-lucide="play-circle" stroke-width="1.5" class="w-4 h-4"></i>
+                  Quick Lessons (2–3 min)
+                </a>
+              </div>
+
+              <!-- Quick Actions -->
+              <div id="emergency" class="rounded-2xl border border-slate-200 bg-white p-4 sm:p-6">
+                <h3 class="text-lg font-semibold tracking-tight">Need Help?</h3>
+                <p class="text-sm text-slate-600">Report scams or get assistance right away</p>
+                <div class="mt-4 grid grid-cols-2 gap-3">
+                  <button id="report-scam" class="flex items-center justify-center gap-2 rounded-xl border border-rose-200 bg-rose-50 px-3.5 py-3 text-rose-800 hover:bg-rose-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600">
+                    <i data-lucide="shield-alert" stroke-width="1.5" class="w-5 h-5"></i>
+                    Report a Scam
+                  </button>
+                  <button id="contact-caregiver" class="flex items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-3.5 py-3 text-blue-800 hover:bg-blue-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                    <i data-lucide="phone" stroke-width="1.5" class="w-5 h-5"></i>
+                    Contact Caregiver
+                  </button>
+                </div>
+                <button id="big-emergency" class="mt-4 w-full inline-flex items-center justify-center gap-3 rounded-2xl bg-rose-600 text-white px-4 py-4 text-lg font-medium tracking-tight shadow-sm hover:bg-rose-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600">
+                  <i data-lucide="alert-octagon" stroke-width="1.5" class="w-6 h-6"></i>
+                  Emergency Help
+                </button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </main>
+
+      <!-- Bottom Navigation (Mobile) -->
+      <nav class="lg:hidden sticky bottom-0 z-40 border-t border-slate-200 bg-white">
+        <div class="grid grid-cols-5">
+          <a href="#" class="flex flex-col items-center justify-center gap-1 py-2.5 text-slate-900">
+            <i data-lucide="home" stroke-width="1.5" class="w-5 h-5"></i>
+            <span class="text-xs">Home</span>
+          </a>
+          <a href="#alerts" class="flex flex-col items-center justify-center gap-1 py-2.5 text-slate-600 hover:text-slate-900">
+            <i data-lucide="bell-ring" stroke-width="1.5" class="w-5 h-5"></i>
+            <span class="text-xs">Alerts</span>
+          </a>
+          <a href="#emergency" class="flex flex-col items-center justify-center gap-1 py-2.5 text-rose-700">
+            <i data-lucide="alert-triangle" stroke-width="1.5" class="w-5 h-5"></i>
+            <span class="text-xs">Help</span>
+          </a>
+          <a href="#caregivers" class="flex flex-col items-center justify-center gap-1 py-2.5 text-slate-600 hover:text-slate-900">
+            <i data-lucide="users" stroke-width="1.5" class="w-5 h-5"></i>
+            <span class="text-xs">Care</span>
+          </a>
+          <a href="#learn" class="flex flex-col items-center justify-center gap-1 py-2.5 text-slate-600 hover:text-slate-900">
+            <i data-lucide="book-open" stroke-width="1.5" class="w-5 h-5"></i>
+            <span class="text-xs">Learn</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      // Initialize icons
+      document.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+      });
+
+      // Accessibility: Text Size Controls
+      const body = document.body;
+      const txtSm = document.getElementById('txt-sm');
+      const txtMd = document.getElementById('txt-md');
+      const txtLg = document.getElementById('txt-lg');
+      function setTextSize(size) {
+        body.classList.remove('text-base', 'text-lg', 'text-xl');
+        if (size === 'sm') body.classList.add('text-base');
+        if (size === 'md') body.classList.add('text-lg');
+        if (size === 'lg') body.classList.add('text-xl');
+        [txtSm, txtMd, txtLg].forEach(b => b.setAttribute('aria-pressed', 'false'));
+        if (size === 'sm') txtSm.setAttribute('aria-pressed', 'true');
+        if (size === 'md') txtMd.setAttribute('aria-pressed', 'true');
+        if (size === 'lg') txtLg.setAttribute('aria-pressed', 'true');
+      }
+      setTextSize('md');
+      txtSm.addEventListener('click', () => setTextSize('sm'));
+      txtMd.addEventListener('click', () => setTextSize('md'));
+      txtLg.addEventListener('click', () => setTextSize('lg'));
+
+      // Toggles
+      function bindToggle(btn) {
+        btn.addEventListener('click', () => {
+          const pressed = btn.getAttribute('aria-pressed') === 'true';
+          btn.setAttribute('aria-pressed', String(!pressed));
+          // Visual: change track color
+          const track = btn.querySelector('span.inline-flex');
+          if (track) track.classList.toggle('bg-slate-900', !pressed);
+          if (track) track.classList.toggle('bg-slate-300', pressed);
+        });
+      }
+      document.querySelectorAll('[data-toggle]').forEach(bindToggle);
+
+      // Voice Assist Toggle (header)
+      const voiceToggleHeader = document.getElementById('voice-toggle');
+      let voiceEnabled = true;
+      voiceToggleHeader.addEventListener('click', () => {
+        voiceEnabled = !voiceEnabled;
+        voiceToggleHeader.setAttribute('aria-pressed', String(voiceEnabled));
+      });
+
+      // Voice: read text aloud
+      function speak(text) {
+        if (!voiceEnabled) return;
+        try {
+          window.speechSynthesis.cancel();
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.rate = 0.95;
+          utter.pitch = 1;
+          utter.lang = 'en-US';
+          window.speechSynthesis.speak(utter);
+        } catch (e) {
+          console.warn('Speech synthesis not available:', e);
+        }
+      }
+
+      // Alerts Feed
+      const alertsList = document.getElementById('alerts-list');
+      const sampleAlerts = [
+        {
+          type: 'call',
+          title: 'Potential scam call detected',
+          source: '+1 (206) 555-0147',
+          reason: 'Spoofed caller ID and high-risk patterns',
+          risk: 'High'
+        },
+        {
+          type: 'sms',
+          title: 'Suspicious message blocked',
+          source: '“Your account is locked. Tap to verify.”',
+          reason: 'Phishing link detected',
+          risk: 'Medium'
+        },
+        {
+          type: 'call',
+          title: 'Robocall blocked automatically',
+          source: '+1 (305) 555-0199',
+          reason: 'Known robocall campaign',
+          risk: 'High'
+        },
+        {
+          type: 'sms',
+          title: 'Lottery scam message intercepted',
+          source: '“You won $5,000! Respond now.”',
+          reason: 'Urgency + prize pattern',
+          risk: 'High'
+        }
+      ];
+
+      function alertIcon(type) {
+        return type === 'call' ? 'phone-incoming' : 'message-circle-warning';
+      }
+
+      function createAlertItem({ type, title, source, reason, risk }) {
+        const li = document.createElement('li');
+        li.className = 'p-4 sm:p-5';
+        li.innerHTML = `
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-start gap-3">
+              <div class="h-10 w-10 rounded-xl ${risk === 'High' ? 'bg-rose-600' : risk === 'Medium' ? 'bg-amber-500' : 'bg-emerald-500'} text-white flex items-center justify-center shrink-0">
+                <i data-lucide="${alertIcon(type)}" stroke-width="1.5" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="text-sm font-medium">${title}</p>
+                <p class="text-sm text-slate-600 mt-0.5"><span class="text-slate-700">From:</span> ${source}</p>
+                <div class="mt-1 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs text-slate-700">
+                  <i data-lucide="info" stroke-width="1.5" class="w-3.5 h-3.5"></i>
+                  ${reason} • Risk: ${risk}
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <button class="read-btn inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600">
+                <i data-lucide="volume-2" stroke-width="1.5" class="w-4 h-4"></i>
+                Read Aloud
+              </button>
+              <button class="inline-flex items-center gap-2 rounded-lg bg-emerald-600 text-white px-3.5 py-2 text-sm hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">
+                <i data-lucide="check-circle-2" stroke-width="1.5" class="w-4 h-4"></i>
+                Safe
+              </button>
+              <button class="inline-flex items-center gap-2 rounded-lg bg-rose-600 text-white px-3.5 py-2 text-sm hover:bg-rose-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-600">
+                <i data-lucide="ban" stroke-width="1.5" class="w-4 h-4"></i>
+                Block
+              </button>
+            </div>
+          </div>
+        `;
+        alertsList.prepend(li);
+        lucide.createIcons();
+        const readBtn = li.querySelector('.read-btn');
+        readBtn.addEventListener('click', () => {
+          speak(`${title}. From: ${source}. ${reason}. Risk: ${risk}.`);
+        });
+      }
+
+      // Seed initial alerts
+      sampleAlerts.forEach((a, i) => setTimeout(() => createAlertItem(a), (i+1) * 120));
+
+      // Simulate new alert
+      document.getElementById('simulate-alert').addEventListener('click', () => {
+        const idx = Math.floor(Math.random() * sampleAlerts.length);
+        createAlertItem(sampleAlerts[idx]);
+        speak('New scam alert. Check your alerts list.');
+      });
+
+      // Chart.js: Weekly trend
+      const ctx = document.getElementById('trendChart')?.getContext('2d');
+      if (ctx) {
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+              label: 'Blocked',
+              data: [2, 1, 3, 1, 4, 2, 5],
+              borderColor: '#0f172a',
+              backgroundColor: 'rgba(15, 23, 42, 0.08)',
+              tension: 0.35,
+              fill: true,
+              pointRadius: 3,
+              pointBackgroundColor: '#0f172a',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                backgroundColor: '#0f172a',
+                titleColor: '#fff',
+                bodyColor: '#fff',
+                padding: 10,
+                displayColors: false
+              }
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { color: '#475569', font: { size: 12 } }
+              },
+              y: {
+                beginAtZero: true,
+                grid: { color: 'rgba(148, 163, 184, 0.25)' },
+                ticks: { color: '#475569', font: { size: 12 }, stepSize: 1 }
+              }
+            }
+          }
+        });
+      }
+
+      // Emergency buttons
+      document.getElementById('big-emergency').addEventListener('click', () => {
+        speak('Emergency help requested. Notifying caregiver now.');
+        alert('Emergency help requested. Your caregivers have been notified.');
+      });
+      document.getElementById('report-scam').addEventListener('click', () => {
+        speak('Scam report started.');
+        alert('Scam report started. We will guide you through a few quick questions.');
+      });
+      document.getElementById('contact-caregiver').addEventListener('click', () => {
+        speak('Calling caregiver.');
+        alert('Calling your caregiver...');
+      });
+    </script>
+  </body>
+</html>
